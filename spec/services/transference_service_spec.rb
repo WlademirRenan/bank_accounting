@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.describe TransferenceService, type: :model do
   context "when date invalid" do
     before(:each) do
-      @transference = subject.class.new(amount: 10.0, source_account_id: 1, destination_account_id: 2)
+      @source_account = Account.create(balance: 10.0)
+      @destination_account = Account.create(balance: 10.0)
+      @transference = subject.class.new(amount: 10.0, source_account_id: @source_account.id, destination_account_id: @destination_account.id)
     end
 
     it 'source_account_id is null' do
@@ -36,9 +38,15 @@ RSpec.describe TransferenceService, type: :model do
     end
 
     it 'account_source_id and account_destination_id is same' do
-      @transference.destination_account_id = 1
+      @transference.destination_account_id = @source_account.id
       @transference.call
       expect(@transference.errors).to eq ["source and destination accounts is same"]
+    end
+
+    it 'balance source account is minor than amount for transference' do
+      @transference.amount = 11.0
+      @transference.call
+      expect(@transference.errors).to eq ["source account not have balance for this operation"]
     end
   end
 end
