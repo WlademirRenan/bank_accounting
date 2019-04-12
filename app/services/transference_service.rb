@@ -41,7 +41,7 @@ class TransferenceService
   end
 
   def amount_invalid?
-    return true if @amount.blank? || @amount.zero?
+    return true if @amount.blank? || @amount.zero? || @amount < 0.0
     false
   end
 
