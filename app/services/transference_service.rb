@@ -11,7 +11,11 @@ class TransferenceService
 
   def call
     validate_transference
-    # make transfer if errors.empty?
+    Transference.create(transfer_params) if errors.empty?
+  end
+
+  def transfer_params
+    { amount: @amount, source_account_id: @source_account_id, destination_account_id: @destination_account_id }
   end
 
   def validate_transference

@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe TransferenceService, type: :model do
+  before(:each) do
+    @source_account = Account.create(balance: 10.0)
+    @destination_account = Account.create(balance: 10.0)
+    @transference = subject.class.new(amount: 10.0, source_account_id: @source_account.id, destination_account_id: @destination_account.id)
+  end
   context "when date invalid" do
-    before(:each) do
-      @source_account = Account.create(balance: 10.0)
-      @destination_account = Account.create(balance: 10.0)
-      @transference = subject.class.new(amount: 10.0, source_account_id: @source_account.id, destination_account_id: @destination_account.id)
-    end
 
     it 'source_account_id is null' do
       @transference.source_account_id = nil
@@ -47,6 +47,12 @@ RSpec.describe TransferenceService, type: :model do
       @transference.amount = 11.0
       @transference.call
       expect(@transference.errors).to eq ["source account not have balance for this operation"]
+    end
+  end
+
+  context "verify fields" do
+    it 'return amount and accounts' do
+      expect(subject.transfer_params.class).to eq Hash
     end
   end
 end
