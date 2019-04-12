@@ -7,7 +7,7 @@ class Api::V1::TransferenceController < Api::V1::ApiController
       if @transference.errors.empty?
         render json: @transference, status: :created
       else
-        render json: { errors: @transference.errors }, status: :unprocessable_entity
+        render json: @transference, status: :unprocessable_entity
       end
     end
    
