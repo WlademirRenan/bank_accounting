@@ -1,6 +1,6 @@
 class Api::V1::AccountController < Api::V1::ApiController
     
-    # POST /api/v1/balance
+    # GET /api/v1/balance
     def get_balance
       if Account.exists? account_params[:account_id]
         @balance = Account.get_balance(account_params[:account_id])  
