@@ -1,6 +1,8 @@
 # System requirements:
+
 * Ruby version 2.6.0
 * Rails version ~> 5.0.7
+
 
 # Installation
 
@@ -27,6 +29,7 @@ The Transference have the following params:
 * destination_acoount_id;
 * amount;
 
+
 # Endpoints:
 
 `GET  /api/v1/balance` => Show account balance
@@ -34,6 +37,27 @@ The Transference have the following params:
 `POST /api/v1/transference` => Create a transference
 
 `headers: { Authorization: "Bearer test123" }` => Header for authentication
+
+
+# Request Examples:
+
+    Balance
+
+GET /api/v1/balance?account_id=1&amp; = HTTP/1.1
+
+Host: localhost:3000
+
+Authorization: Bearer test123
+
+
+    Transference
+
+POST //api/v1/transference?source_account_id=1&amp; destination_account_id=2&amp; amount=10 HTTP/1.1
+
+Host: localhost:3000
+
+Authorization: Bearer test123
+
 
 # Contributing
 
