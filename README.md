@@ -8,17 +8,17 @@
 
 Clone the project:
 
-`git clone https://github.com/WlademirRenan/bank_accounting.git`
+    git clone https://github.com/WlademirRenan/bank_accounting.git
 
 Run:
 
-`bundle install`
+    bundle install
 
-`rails db:create`
+    rails db:create
 
-`rails db:migrate`
+    rails db:migrate
 
-`rails db:seed`
+    rails db:seed
 
 The Account have the following params:
 * description;
