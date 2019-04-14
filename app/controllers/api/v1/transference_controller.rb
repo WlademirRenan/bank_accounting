@@ -2,7 +2,7 @@ class Api::V1::TransferenceController < Api::V1::ApiController
     
     # POST /api/v1/transference
     def create
-      @transference = TransferenceService.new(transference_params)
+      @transference = TransferenceService.new(transference_params.merge(user_id: @user.id))
       @transference.call
       if @transference.errors.empty?
         render json: @transference, status: :created

@@ -4,6 +4,7 @@ class TransferenceService
     @source_account_id = params[:source_account_id]
     @destination_account_id = params[:destination_account_id]
     @amount = params[:amount].to_f
+    @user_id = params[:user_id]
     @errors = []
   end
 
@@ -15,7 +16,10 @@ class TransferenceService
   end
 
   def transfer_params
-    { amount: @amount, source_account_id: @source_account_id, destination_account_id: @destination_account_id }
+    { 
+      amount: @amount, source_account_id: @source_account_id,
+      destination_account_id: @destination_account_id, user_id: @user_id
+    }
   end
 
   def validate_transference
