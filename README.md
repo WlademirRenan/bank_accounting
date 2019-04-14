@@ -5,9 +5,11 @@
 # Installation
 
 Clone the project:
+
 `git clone https://github.com/WlademirRenan/bank_accounting.git`
 
 Run:
+
 `bundle install`
 
 `rails db:create`
@@ -25,7 +27,7 @@ The Transference have the following params:
 * destination_acoount_id;
 * amount;
 
-# ENDPOINTS:
+# Endpoints:
 
 `GET  /api/v1/balance` => Show account balance
 
@@ -43,17 +45,24 @@ Set up Ruby dependencies via Bundler
 
     bundle install
 
-Make sure the tests pass:
+Make sure the tests pass.
 
 Make your change.
+
 Write tests.
-Make the tests pass:
+
+Make the tests pass.
+
 Write a good commit message.
+
 Push to your fork.
+
 Submit a pull request pr.
 
 Wait for us.
-We try to at least comment on pull requests;
+
+We try to at least comment on pull requests.
+
 We may suggest changes.
 
 Thank you for your contribution!
