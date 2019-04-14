@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Account.create(balance: 100.0, description: 'account1')
 Account.create(balance: 100.0, description: 'account2')
+User.create(name: 'test', token: 'test123')
